@@ -32,6 +32,17 @@ func GetData(ctx *gin.Context) {
 		return
 	}
 
+	// getData, err := json.MarshalIndent(result, "", " ")
+
+	// if err != nil {
+	// 	log.Println("Error:", err)
+	// }
+
+	// waterStatus := helpers.GetWaterStatus(water)
+	// windStatus := helpers.GetWindStatus(wind)
+
+	// fmt.Printf("%s\nstatus water : %s\nstatus wind : %s\n", string(getData), waterStatus, windStatus)
+
 	ctx.JSON(http.StatusOK, result)
 }
 
@@ -94,9 +105,9 @@ func RequestUpdateData() {
 		log.Println("Error:", err)
 	}
 
-	waterStatus := helpers.GetStatus(requestBody.Water)
-	windStatus := helpers.GetStatus(requestBody.Wind)
+	waterStatus := helpers.GetWaterStatus(requestBody.Water)
+	windStatus := helpers.GetWindStatus(requestBody.Wind)
 
-	fmt.Printf("%s\nstatus water : %s\nstatus wind : %s", string(getData), waterStatus, windStatus)
+	fmt.Printf("%s\nstatus water : %s\nstatus wind : %s\n", string(getData), waterStatus, windStatus)
 
 }
